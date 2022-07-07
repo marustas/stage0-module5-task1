@@ -103,7 +103,7 @@ public class ArrayTasks {
      */
     public int[] getOnlyPositiveNumbers(int[] arr) {
         int[] positiveArr = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < positiveArr.length; i++) {
             if (arr[i] > 0) {
                 positiveArr[i] = arr[i];
             }
