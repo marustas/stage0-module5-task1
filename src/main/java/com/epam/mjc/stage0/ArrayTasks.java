@@ -108,13 +108,13 @@ public class ArrayTasks {
                 amount++;
             }
         }
-        int[] positiveArr = new int[amount];
+        int[] a = new int[amount];
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > 0) {
-                positiveArr[i] = arr[i];
+                a[i] = arr[i];
             }
         }
-        return positiveArr;
+        return a;
     }
 
     /**
