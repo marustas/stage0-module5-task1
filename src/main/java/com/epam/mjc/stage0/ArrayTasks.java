@@ -60,15 +60,10 @@ public class ArrayTasks {
      */
     public int findIndexOfNumber(int[] arr, int number) {
         for (int i = 0; i < arr.length; i++) {
-            if (number == arr[i]) {
-                number = i;
-                break;
-            } else if (number == arr.length - 1) {
-                number = -1;
-                break;
-            }
+            if (arr[i] == number)
+                return i;
         }
-        return number;
+        return -1;
     }
 
 
@@ -107,16 +102,21 @@ public class ArrayTasks {
      * arr = [1, 2]         -> [1, 2]
      */
     public int[] getOnlyPositiveNumbers(int[] arr) {
-        int a[] = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > 0) {
-                a[i] = arr[i];
-            } else {
-                a[i] = a[i];
+        int counter = 1;
+        for (int j : arr) {
+            if (j > 0) {
+                counter++;
             }
         }
-        return a;
+        int[] positiveArr = new int[counter];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > 0) {
+                positiveArr[i] = arr[i];
+            }
+        }
+        return positiveArr;
     }
+
 
     /**
      * Return a sorted, ragged, two-dimensional int[][] array following these rules:
@@ -129,6 +129,27 @@ public class ArrayTasks {
      * arr = [[5, 4], [7]]       -> [[7], [4, 5]]
      */
     public int[][] sortRaggedArray(int[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                for (int k = 0; k < arr[i].length - j - 1; k++) {
+                    if (arr[i][k] > arr[i][k + 1]) {
+                        int temp = arr[i][k];
+                        arr[i][k] = arr[i][k + 1];
+                        arr[i][k + 1] = temp;
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j].length > arr[j + 1].length) {
+                    int[] temp_arr = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp_arr;
+                }
+            }
+        }
         return arr;
     }
 }
