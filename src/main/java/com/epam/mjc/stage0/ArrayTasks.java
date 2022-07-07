@@ -26,7 +26,7 @@ public class ArrayTasks {
      */
     public int[] generateNumbers(int length) {
         int a[] = new int[length];
-        int count = 0;
+        int count = 1;
         for (int i = 0; i < length; i++) {
             a[i] = count++;
         }
@@ -59,13 +59,13 @@ public class ArrayTasks {
      * arr = [5, -3, -4],   number = 10    ->  -1
      */
     public int findIndexOfNumber(int[] arr, int number) {
-        int i;
-        for (i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             if (number == arr[i]) {
                 number = i;
                 break;
-            } else {
+            } else if (number == arr.length - 1) {
                 number = -1;
+                break;
             }
         }
         return number;
@@ -107,25 +107,15 @@ public class ArrayTasks {
      * arr = [1, 2]         -> [1, 2]
      */
     public int[] getOnlyPositiveNumbers(int[] arr) {
-        int nElements = 0;
-
-        for (int j : arr) {
-            if (j > 0) {
-                nElements = j;
-
+        int a[] = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > 0) {
+                a[i] = arr[i];
             } else {
-                nElements = -1;
+                a[i] = a[i];
             }
         }
-        int[] output = new int[nElements];
-
-        for (int i = 0; i < arr.length; i++) {
-            output[i] = nElements;
-
-        }
-
-        return output;
-
+        return a;
     }
 
     /**
