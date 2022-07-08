@@ -113,7 +113,7 @@ public class ArrayTasks {
 
         for (int j : arr) {
             if (j > 0) {
-                positiveArr[amount++] = j;
+                positiveArr[count++] = j;
             }
         }
         return positiveArr;
