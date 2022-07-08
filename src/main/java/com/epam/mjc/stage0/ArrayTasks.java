@@ -103,19 +103,22 @@ public class ArrayTasks {
      */
     public int[] getOnlyPositiveNumbers(int[] arr) {
         int amount = 0;
+        int count = 0;
         for (int k : arr) {
             if (k > 0) {
                 amount++;
             }
         }
-        int[] a = new int[amount];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > 0) {
-                a[i] = arr[i];
+        int[] positiveArr = new int[amount];
+
+        for (int j : arr) {
+            if (j > 0) {
+                positiveArr[count++] = j;
             }
         }
-        return a;
+        return positiveArr;
     }
+
 
     /**
      * Return a sorted, ragged, two-dimensional int[][] array following these rules:
